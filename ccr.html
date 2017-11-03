@@ -85,6 +85,17 @@
                             displayMode: "EXPANDED"
                         }, 
                         {
+                            name: "Ensembl Transcripts",
+                            type: "annotation",
+                            format: "gtf",
+                            sourceType: "file",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/Homo_sapiens.GRCh37.75.gtf.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/Homo_sapiens.GRCh37.75.gtf.gz.tbi",
+                            order: Number.MAX_VALUE,
+                            visibilityWindow: 300000000,
+                            displayMode: "EXPANDED"
+                        }, 
+                        {
                             url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw',
                             name: 'CCRs',
                             type: "wig"

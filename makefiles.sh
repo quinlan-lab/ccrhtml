@@ -1,4 +1,6 @@
 #must upload final gzipped CCR file to S3 before this
+# ENSEMBL available at: ftp://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/Homo_sapiens.GRCh37.75.gtf.gz
+# refSeq at: https://s3.amazonaws.com/igv.broadinstitute.org/annotations/hg19/genes/refGene.hg19.bed.gz
 if [ ! -s gnomadbased-ccrs.bed.gz ]; then
     wget https://s3.us-east-2.amazonaws.com/ccrs/ccrs/gnomadbased-ccrs.bed.gz
     wget https://s3.us-east-2.amazonaws.com/ccrs/ccrs/gnomadbased-ccrs.bed.gz.tbi
