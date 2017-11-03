@@ -74,16 +74,16 @@
                     locus: "chr20:62,064,356-62,079,335",
                     tracks: [
                         {
-                            name: "Self-Chains at 90% Identity",
+                            name: "Ensembl Transcripts",
                             type: "annotation",
-                            format: "bed",
+                            format: "gtf",
                             sourceType: "file",
-                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz",
-                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz.tbi",
-                            order: Number.MAX_VALUE,
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz.tbi",
+                            order: 1,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
-                        },
+                        }, 
                         {
                             name: "Segmental Duplications",
                             type: "annotation",
@@ -91,21 +91,21 @@
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz.tbi",
-                            order: Number.MAX_VALUE,
+                            order: 2,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         },
                         {
-                            name: "Ensembl Transcripts",
+                            name: "Self-Chains at 90% Identity",
                             type: "annotation",
-                            format: "gtf",
+                            format: "bed",
                             sourceType: "file",
-                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz",
-                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz.tbi",
-                            order: Number.MAX_VALUE,
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz.tbi",
+                            order: 3,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
-                        }, 
+                        },
                         {
                             url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw',
                             name: 'CCRs',
