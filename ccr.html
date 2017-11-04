@@ -74,13 +74,32 @@
                     locus: "chr20:62,064,356-62,079,335",
                     tracks: [
                         {
+                            url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw',
+                            name: 'CCRs',
+                            type: "wig",
+                            height: 200,
+                            visibilityWindow: 500000
+                        },
+                        {
+                            name: "CCRs in BED12",
+                            type: "annotation",
+                            format: "bed",
+                            sourceType: "file",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bed12.bed.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bed12.bed.gz.tbi",
+                            order: 1,
+                            height: 50,
+                            visibilityWindow: 500000,
+                            displayMode: "EXPANDED"
+                        },
+                        {
                             name: "Ensembl Transcripts",
                             type: "annotation",
                             format: "gtf",
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz.tbi",
-                            order: 1,
+                            order: 2,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         }, 
@@ -91,7 +110,7 @@
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz.tbi",
-                            order: 2,
+                            order: 3,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         },
@@ -102,15 +121,9 @@
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz.tbi",
-                            order: 3,
+                            order: 4,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
-                        },
-                        {
-                            url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw',
-                            name: 'CCRs',
-                            type: "wig",
-                            visibilityWindow: 500000
                         }
 
                     ]
