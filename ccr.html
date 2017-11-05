@@ -13,7 +13,7 @@
     <title>Integrative Genomics Viewer - CCRs</title>
 
     <!-- Bootstrap CSS - for demo only, NOT REQUIRED FOR IGV, but for some reason, changes header font style in a pleasing way-->
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/ccrs/custombootstrap.min.css"> 
     
     <!-- Bootstrap JS - needed for zoom button -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -53,6 +53,18 @@
     <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bedGraph.gz" class="btn btn-info" role="button">bedGraph File</a>
     <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw" class="btn btn-info" role="button">bigWig File</a>
 </div>
+
+ <!-- legend -->
+
+<div class="container">
+  <h4>CCR BED12 Color Legend</h4>
+  <p>There are colors for each scale of constraint.</p>  
+  <span class="label label-default">CCRs &lt; 90th Percentile</span>
+  <span class="label label-success">CCRs &ge; 90th Percentile</span>
+  <span class="label label-warning">CCRs &ge; 95th Percentile</span>
+  <span class="label label-danger">CCRs &ge; 99th Percentile</span>
+</div>
+
  <!-- container -->
 
 <div class="container-fluid" id="igvDiv" style="padding:5px; border:1px solid lightgray"></div>
@@ -77,7 +89,7 @@
                             url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw',
                             name: 'CCRs',
                             type: "wig",
-                            color: "#c1272d",
+                            color: "#2F4F4F",
                             height: 200,
                             visibilityWindow: 500000
                         },
