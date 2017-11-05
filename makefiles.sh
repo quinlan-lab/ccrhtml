@@ -3,13 +3,16 @@
 # refSeq at: https://s3.amazonaws.com/igv.broadinstitute.org/annotations/hg19/genes/refGene.hg19.bed.gz
 # bedGraphToBigWig at: http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/bedGraphToBigWig (different for Mac OSX)
 if [ ! -s genomicSuperDups.txt.gz ]; then
-    wget ftp://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/genomicSuperDups.txt.gz #segmental duplications
+    wget ftp://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/genomicSuperDups.txt.gz # segmental duplications
 fi
 if [ ! -s chainSelf.txt.gz ]; then
-    wget ftp://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/chainSelf.txt.gz# self-chains
+    wget ftp://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/chainSelf.txt.gz # self-chains
+fi
+if [ ! -s ucscGenePfam.txt.gz ]; then
+    wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/ucscGenePfam.txt.gz # pfam domains
 fi
 if [ ! -s gnomadbased-ccrs.bed.gz ]; then
-    wget https://s3.us-east-2.amazonaws.com/ccrs/ccrs/gnomadbased-ccrs.bed.gz
+    wget https://s3.us-east-2.amazonaws.com/ccrs/ccrs/gnomadbased-ccrs.bed.gz # ccrs in final version from pipeline
     wget https://s3.us-east-2.amazonaws.com/ccrs/ccrs/gnomadbased-ccrs.bed.gz.tbi
 fi
 
@@ -25,3 +28,6 @@ python bed12.py ccrs.bed.gz | bgzip -c > ccrs.bed12.bed.gz; tabix -p bed ccrs.be
 # grab and make self-chain and segdup tracks
 zcat genomicSuperDups.txt.gz | cut -f 2-4 | sort -k1,1 -k2,2n | bgzip -c > hgsegmental.bed.gz; tabix hgsegmental.bed.gz
 zcat chainSelf.txt.gz | cut -f 3,5-6,13 | awk '$NF>=90' | sort -k1,1 -k2,2n | bgzip -c > self-chains.id90.bed.gz; tabix self-chains.id90.bed.gz
+
+# add and make pfam file
+zcat ucscGenePfam.txt.gz | cut -f 2- | bgzip -c > pfams.bed12.bed.gz; tabix pfams.bed12.bed.gz

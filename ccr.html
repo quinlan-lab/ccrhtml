@@ -114,8 +114,21 @@
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz.tbi",
                             order: 2,
                             visibilityWindow: 500000,
-                            displayMode: "EXPANDED"
+                            displayMode: "COLLAPSED"
                         }, 
+                        {
+                            name: "Pfam domains",
+                            type: "annotation",
+                            format: "bed",
+                            sourceType: "file",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/pfams.bed12.bed.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/pfams.bed12.bed.gz.tbi",
+                            order: 3,
+                            height: 50,
+                            color: "#019c01",
+                            visibilityWindow: 500000,
+                            displayMode: "COLLAPSED"
+                        },
                         {
                             name: "Segmental Duplications",
                             type: "annotation",
@@ -123,7 +136,7 @@
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz.tbi",
-                            order: 3,
+                            order: 4,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         },
@@ -134,7 +147,7 @@
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz.tbi",
-                            order: 4,
+                            order: 5,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         }
