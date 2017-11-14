@@ -17,13 +17,13 @@ if [ ! -s gnomadbased-ccrs.$ver.$date.bed.gz ]; then
 fi
 
 # build ccr track and files
-zcat < gnomadbased-ccrs.$ver.$date.bed.gz | sort -k14,14nr | awk 'BEGIN{key=""; val=0} {{if (key !=$4 $7) val+=1} print $0 "\t" val; key=$4 $7}' | cut -f -4,7-8,10- | sort -k1,1 -k2,2n | cat <(printf "chrom\tstart\tend\tgene\tranges\tvarflag\tcpg\tcov_score\tresid\tresid_pctile\tccr_pct\tunique_key\n") - | bgzip -c > ccrs.$ver.$date.bed.gz
-zcat < ccrs.$ver.$date.bed.gz | sed '1d' | sed 's/^/chr/g' | awk '{print $1,$2,$3,$11}' OFS="\t" | bedtools merge -d -1 -c 4 -o mean > ccrs.$ver.$date.bedGraph
+zcat < gnomadbased-ccrs.$ver.$date.bed.gz | sort -k14,14nr | awk 'BEGIN{key=""; val=0} {{if (key !=$4 $7) val+=1} print $0 "\t" val; key=$4 $7}' | cut -f -4,7-8,10- | awk '{printf $1 "\t" $2 "\t" $3 "\t" $(NF-1)} {for (i = 4; i <= NF-2; i++) {printf "\t" $i}} {printf "\t" $NF "\n"}' | sort -k1,1 -k2,2n | cat <(printf "#chrom\tstart\tend\tccr_pct\tgene\tranges\tvarflag\tcpg\tcov_score\tresid\tresid_pctile\tunique_key\n") - | bgzip -c > ccrs.$ver.$date.bed.gz; tabix ccrs.$ver.$date.bed.gz
+zcat < ccrs.$ver.$date.bed.gz | sed '1d' | sed 's/^/chr/g' | awk '{print $1,$2,$3,$4}' OFS="\t" | bedtools merge -d -1 -c 4 -o mean > ccrs.$ver.$date.bedGraph
 bgzip -c ccrs.$ver.$date.bedGraph > ccrs.$ver.$date.bedGraph.gz; tabix -b 2 -e 3 ccrs.$ver.$date.bedGraph.gz
 bedGraphToBigWig ccrs.$ver.$date.bedGraph hg19.chrom.sizes ccrs.$ver.$date.bw
 
 # create BED12 of CCRs:
-python bed12.py ccrs.bed.gz | bgzip -c > ccrs.bed12.bed.gz; tabix -p bed ccrs.bed12.bed.gz -f
+python bed12.py ccrs.$ver.$date.bed.gz | sort -k1,1 -k2,2n | bgzip -c > ccrs.$ver.$date.bed12.bed.gz; tabix -p bed ccrs.$ver.$date.bed12.bed.gz -f
 
 # grab and make self-chain and segdup tracks
 zcat < genomicSuperDups.txt.gz | cut -f 2-4 | sort -k1,1 -k2,2n | bgzip -c > hgsegmental.bed.gz; tabix hgsegmental.bed.gz
