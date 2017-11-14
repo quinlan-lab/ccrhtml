@@ -49,9 +49,9 @@
 <!-- jumbotron; moving container outside of jumbotron allows the igv track to expand with the window-->
 <div class="container">
     <h2 align="center" style="font-family:Raleway; font-size:32px; font-weight:normal;">Constrained Coding Regions based on 123,136 human exomes from gnomAD</h2>
-    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bed.gz" class="btn btn-info" role="button">BED File</a>
-    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bedGraph.gz" class="btn btn-info" role="button">bedGraph File</a>
-    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw" class="btn btn-info" role="button">bigWig File</a>
+    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bed.gz" class="btn btn-info" role="button">BED File</a>
+    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bedGraph.gz" class="btn btn-info" role="button">bedGraph File</a>
+    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bw" class="btn btn-info" role="button">bigWig File</a>
 </div>
 
  <!-- legend -->
@@ -86,7 +86,7 @@
                     locus: "chr20:62,064,356-62,079,335",
                     tracks: [
                         {
-                            url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bw',
+                            url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bw',
                             name: 'CCRs',
                             type: "wig",
                             color: "#2F4F4F",
@@ -98,8 +98,8 @@
                             type: "annotation",
                             format: "bed",
                             sourceType: "file",
-                            url: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bed12.bed.gz",
-                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.bed12.bed.gz.tbi",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bed12.bed.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bed12.bed.gz.tbi",
                             order: 1,
                             height: 50,
                             visibilityWindow: 500000,
