@@ -8,9 +8,6 @@ date=20171112
 if [ ! -s genomicSuperDups.txt.gz ]; then
     wget ftp://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/genomicSuperDups.txt.gz # segmental duplications
 fi
-if [ ! -s chainSelf.txt.gz ]; then
-    wget ftp://hgdownload.soe.ucsc.edu/goldenPath/hg19/database/chainSelf.txt.gz # self-chains
-fi
 if [ ! -s ucscGenePfam.txt.gz ]; then
     wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/database/ucscGenePfam.txt.gz # pfam domains
 fi
@@ -30,7 +27,7 @@ python bed12.py ccrs.bed.gz | bgzip -c > ccrs.bed12.bed.gz; tabix -p bed ccrs.be
 
 # grab and make self-chain and segdup tracks
 zcat < genomicSuperDups.txt.gz | cut -f 2-4 | sort -k1,1 -k2,2n | bgzip -c > hgsegmental.bed.gz; tabix hgsegmental.bed.gz
-zcat < chainSelf.txt.gz | cut -f 3,5-6,13 | awk '$NF>=90' | sort -k1,1 -k2,2n | bgzip -c > self-chains.id90.bed.gz; tabix self-chains.id90.bed.gz
+python get-chain.py | sort -k1,1 -k2,2n | bgzip -c > self-chains.id90.bed.gz; tabix self-chains.id90.bed.gz
 
 # add and make pfam file
 zcat < ucscGenePfam.txt.gz | cut -f 2- | bgzip -c > pfams.bed12.bed.gz; tabix pfams.bed12.bed.gz
