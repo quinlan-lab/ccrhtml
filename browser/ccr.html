@@ -27,7 +27,7 @@
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"/>
 
     <!-- IGV CSS -->
-    <link rel="stylesheet" type="text/css" href="https://igv.org/web/release/1.0.9/igv-1.0.9.css">
+    <link rel="stylesheet" type="text/css" href="https://igv.org/web/test/dist/css/igv.css">
 
     <!-- jQuery JS -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -36,7 +36,7 @@
 
 
     <!-- IGV JS-->
-    <script type="text/javascript" src="https://igv.org/web/release/1.0.9/igv-1.0.9.js"></script>
+    <script type="text/javascript" src="https://igv.org/web/test/dist/igv.js"></script>
 
 </head>
 
@@ -89,7 +89,22 @@
                             url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bw',
                             name: 'CCRs',
                             type: "wig",
-                            color: "#2F4F4F",
+                            color: function(value) {
+                                var c;
+                                if (value < 90){
+                                    c = "rgb(0,0,255)"
+                                }
+                                if (value >= 90){
+                                    c = "rgb(255,165,0)"
+                                }
+                                if (value >= 95){
+                                    c = "rgb(255,0,0)"
+                                }
+                                if (value >= 99){
+                                    c = "rgb(139,0,0)"
+                                }
+                                return c 
+                            },
                             height: 200,
                             visibilityWindow: 500000
                         },
