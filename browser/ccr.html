@@ -12,15 +12,20 @@
     <link rel="shortcut icon" href="//igv.org/web/img/favicon.ico">
     <title>Integrative Genomics Viewer - CCRs</title>
 
-    <!-- Bootstrap CSS - for demo only, NOT REQUIRED FOR IGV, but for some reason, changes header font style in a pleasing way-->
-    <link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/ccrs/custombootstrap.min.css"> 
-    
-    <!-- Bootstrap JS - needed for zoom button -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <!-- jQuery JS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 
     <!-- jQuery UI CSS -->
     <link rel="stylesheet" type="text/css"
           href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css"/>
+
+    <!-- Bootstrap CSS - for demo only, NOT REQUIRED FOR IGV, but for some reason, changes header font style in a pleasing way-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> 
+    
+    <!-- Bootstrap JS - needed for zoom button -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
     <!-- Font Awesome CSS, also needed for zoom buttons for some reason -->
     <link rel="stylesheet" type="text/css"
@@ -29,14 +34,26 @@
     <!-- IGV CSS -->
     <link rel="stylesheet" type="text/css" href="https://igv.org/web/test/dist/css/igv.css">
 
-    <!-- jQuery JS -->
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript"
-            src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
-
-
     <!-- IGV JS-->
     <script type="text/javascript" src="https://igv.org/web/test/dist/igv.js"></script>
+
+<style>
+div.igv-track-label {
+    max-width: 500px;
+}
+span.label-default {
+    background-color: rgb(0, 0, 255)
+}
+span.label-success {
+    background-color: rgb(255, 165, 0)
+}
+span.label-warning {
+    background-color: rgb(255, 0, 0)
+}
+span.label-danger {
+    background-color: rgb(139, 0, 0)
+}
+</style>
 
 </head>
 
