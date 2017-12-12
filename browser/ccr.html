@@ -145,13 +145,23 @@
                             displayMode: "COLLAPSED"
                         },
                         {
+                            name: "ClinVar protein-changing pathogenics",
+                            type: "variant",
+                            format: "vcf",
+                            color: "#000000",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/clinvar-functional-pathogenics.vcf.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/clinvar-functional-pathogenics.vcf.gz.tbi",
+                            order: 4,
+                            visibilityWindow: 500000
+                        },
+                        {
                             name: "Segmental Duplications",
                             type: "annotation",
                             format: "bed",
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz.tbi",
-                            order: 4,
+                            order: 5,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         },
@@ -162,7 +172,7 @@
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz.tbi",
-                            order: 5,
+                            order: 6,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         }

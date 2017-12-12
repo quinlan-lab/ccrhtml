@@ -31,3 +31,7 @@ python get-chain.py | sort -k1,1 -k2,2n | bgzip -c > self-chains.id90.bed.gz; ta
 
 # add and make pfam file
 zcat < ucscGenePfam.txt.gz | cut -f 2- | bgzip -c > pfams.bed12.bed.gz; tabix pfams.bed12.bed.gz
+
+# add and make ClinVar pathogenic functional variant file
+# note that the file clinvar-pathogenic-likely_pathogenic.20170802.vcf.gz is created by the clinvar make.sh at https://github.com/quinlan-lab/pathoscore, and annotating it with ExAC exclusions is also done by pathoscore, as well as the BCSQ annotations done by bcftools, and the filtering on review status
+python vars.py -f -w clinvar-pathogenic-likely_pathogenic.20170802.vcf.gz | bgzip -c > clinvar-functional-pathogenics.vcf.gz; tabix clinvar-functional-pathogenics.vcf.gz
