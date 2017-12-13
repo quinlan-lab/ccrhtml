@@ -46,3 +46,5 @@ fi
 python gnomad.py -x gnomad-vep-vt.vcf.gz > gnomad-functional-pass.vcf
 bgzip -c gnomad-functional-pass.vcf > gnomad-functional-pass.vcf.gz; tabix gnomad-functional-pass.vcf.gz
 
+# make gnomAD coverage track
+bash makecov.sh
