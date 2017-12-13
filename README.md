@@ -6,6 +6,13 @@
 
 # [CCR Browser](https://rebrand.ly/ccrregions "CCR Browser")
 
+So the browser is accessible at [rebrand.ly/ccrregions](https://rebrand.ly/ccrregions) (the link shown above) or the hard link at https://s3.us-east-2.amazonaws.com/ccrs/ccr.html.  You can use either link to get to the browser, and after either link you can submit a locus as a query to the browser at the end of the URL like so:
+* rebrand.ly/ccrregions#chr20:62,064,356-62,079,335
+* or rebrand.ly/ccrregions#20:62,064,356-62,079,335 
+* or rebrand.ly/ccrregions#chr20:62064356-62079335 
+* or rebrand.ly/ccrregions#20:62064356-62079335 
+
+
 ![Browser Screenshot](images/browserscreenshot.png "Browser Screenshot")
 
 ## BED file columns

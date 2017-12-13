@@ -86,6 +86,14 @@ span.label-danger {
 
 <div class="container-fluid" id="igvDiv" style="padding:5px; border:1px solid lightgray"></div>
 
+<script>
+
+var locus = window.location.hash.substr(1);
+if (!locus){
+    locus = "chr20:62,064,356-62,079,335";
+}
+
+</script>
 
 <script type="text/javascript">
 
@@ -100,7 +108,7 @@ span.label-danger {
                         id: "hg19"
                     },
                     genome: "hg19",
-                    locus: "chr20:62,064,356-62,079,335",
+                    locus: locus,
                     tracks: [
                         {
                             url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bw',
