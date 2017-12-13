@@ -1,5 +1,6 @@
 ver=v1
 date=20171112
+software=$1
 #ccrs.v1.20171112.bed
 # must upload final gzipped CCR file to S3 before this
 # ENSEMBL available at: ftp://ftp.ensembl.org/pub/release-75/gtf/homo_sapiens/Homo_sapiens.GRCh37.75.gtf.gz
@@ -35,3 +36,13 @@ zcat < ucscGenePfam.txt.gz | cut -f 2- | bgzip -c > pfams.bed12.bed.gz; tabix pf
 # add and make ClinVar pathogenic functional variant file
 # note that the file clinvar-pathogenic-likely_pathogenic.20170802.vcf.gz is created by the clinvar make.sh at https://github.com/quinlan-lab/pathoscore, and annotating it with ExAC exclusions is also done by pathoscore, as well as the BCSQ annotations done by bcftools, and the filtering on review status
 python vars.py -f -w clinvar-pathogenic-likely_pathogenic.20170802.vcf.gz | bgzip -c > clinvar-functional-pathogenics.vcf.gz; tabix clinvar-functional-pathogenics.vcf.gz
+
+# add gnomAD
+if [ ! -s gnomad-vep-vt.vcf.gz ]; then
+    wget https://storage.googleapis.com/gnomad-public/release/2.0.1/vcf/exomes/gnomad.exomes.r2.0.1.sites.vcf.gz
+    wget https://storage.googleapis.com/gnomad-public/release/2.0.1/vcf/exomes/gnomad.exomes.r2.0.1.sites.vcf.gz.tbi
+    bash varmake.sh gnomad.exomes.r2.0.1.sites.vcf.gz software
+fi
+python gnomad.py -x gnomad-vep-vt.vcf.gz > gnomad-functional-pass.vcf
+bgzip -c gnomad-functional-pass.vcf > gnomad-functional-pass.vcf.gz; tabix gnomad-functional-pass.vcf.gz
+

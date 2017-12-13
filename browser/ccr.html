@@ -172,13 +172,23 @@ span.label-danger {
                             visibilityWindow: 500000
                         },
                         {
+                            name: "gnomAD protein-changing high quality variants",
+                            type: "variant",
+                            format: "vcf",
+                            color: "#bebebe",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/gnomad-functional-pass.vcf.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/gnomad-functional-pass.vcf.gz.tbi",
+                            order: 5,
+                            visibilityWindow: 500000
+                        },
+                        {
                             name: "Segmental Duplications",
                             type: "annotation",
                             format: "bed",
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz.tbi",
-                            order: 5,
+                            order: 6,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         },
@@ -189,7 +199,7 @@ span.label-danger {
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz.tbi",
-                            order: 6,
+                            order: 7,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         }
