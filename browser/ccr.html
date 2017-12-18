@@ -89,14 +89,15 @@ span.label-danger {
 <script>
 
 var locus = window.location.hash.substr(1);
-if (!locus){
+if (!locus) {
     locus = "chr20:62,064,356-62,079,335";
+} else if (locus.includes("+")) {
+    locus=locus.split("+");
 }
 
 </script>
 
 <script type="text/javascript">
-
     $(document).ready(function () {
 
         var div = $("#igvDiv")[0],
