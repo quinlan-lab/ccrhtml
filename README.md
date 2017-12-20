@@ -10,8 +10,13 @@ So the browser is accessible at [rebrand.ly/ccrregions](https://rebrand.ly/ccrre
 * rebrand.ly/ccrregions#chr20:62,064,356-62,079,335
 * or rebrand.ly/ccrregions#20:62,064,356-62,079,335 
 * or rebrand.ly/ccrregions#chr20:62064356-62079335 
-* or rebrand.ly/ccrregions#20:62064356-62079335 
+* or rebrand.ly/ccrregions#20:62064356-62079335
+* or rebrand.ly/ccrregions#KCNQ2 
 
+Additionally you can do multi-locus search in the URL (or separated by spaces in the search bar of IGV) like so:
+* rebrand.ly/ccrregions#chr20:62,064,356-62,079,335+ACTN1
+* or rebrand.ly/ccrregions#KCNQ2+ACTN1
+* or rebrand.ly/ccrregions#KCNQ2+ACTN1+ACTN2
 
 ![Browser Screenshot](images/browserscreenshot.png "Browser Screenshot")
 
