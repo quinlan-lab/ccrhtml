@@ -2,6 +2,15 @@
 
 <html lang="en">
 <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112914158-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-112914158-2');
+</script>
 <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -148,7 +157,8 @@ if (!locus) {
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/Homo_sapiens.GRCh37.75.gtf.gz.tbi",
                             order: 3,
                             visibilityWindow: 500000,
-                            displayMode: "COLLAPSED"
+                            displayMode: "COLLAPSED",
+                            autoHeight: true
                         }, 
                         {
                             name: "Pfam domains",
