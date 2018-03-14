@@ -184,13 +184,23 @@ if (!locus) {
                             visibilityWindow: 500000
                         },
                         {
+                            name: "COSMIC Cancer-Related Coding Variants",
+                            type: "variant",
+                            format: "vcf",
+                            color: "#551a8b",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/CosmicCodingMuts.vcf.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/CosmicCodingMuts.vcf.gz.tbi",
+                            order: 6,
+                            visibilityWindow: 500000
+                        },
+                        {
                             name: "gnomAD protein-changing high quality variants",
                             type: "variant",
                             format: "vcf",
                             color: "#bebebe",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/gnomad-functional-pass.vcf.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/gnomad-functional-pass.vcf.gz.tbi",
-                            order: 6,
+                            order: 7,
                             visibilityWindow: 500000
                         },
                         {
@@ -208,7 +218,7 @@ if (!locus) {
                                 return c 
                             },
                             height: 50,
-                            order: 7,
+                            order: 8,
                             visibilityWindow: 500000
                         },
                         {
@@ -218,7 +228,7 @@ if (!locus) {
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/hgsegmental.bed.gz.tbi",
-                            order: 8,
+                            order: 9,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         },
@@ -229,7 +239,7 @@ if (!locus) {
                             sourceType: "file",
                             url: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz",
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/self-chains.id90.bed.gz.tbi",
-                            order: 9,
+                            order: 10,
                             visibilityWindow: 500000,
                             displayMode: "EXPANDED"
                         }
