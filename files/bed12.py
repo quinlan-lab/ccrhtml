@@ -7,7 +7,7 @@ prevkey, blockSizes, blockStarts = None, [], []
 tempdicts=[]
 for d in ts.reader(sys.argv[1], header='ordered'):
     tempdicts.append(d)
-sorter = itemgetter('unique_key', 'start')
+sorter = itemgetter('unique_key')
 grouper = itemgetter('unique_key')
 for key, grp in groupby(sorted(tempdicts, key = sorter), grouper):
     grp=list(grp)
