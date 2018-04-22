@@ -67,9 +67,9 @@ span.label-danger {
 <div class="container float-left">
 
     <h2 style="font-family:Raleway; font-size:32px; font-weight:normal;">Constrained Coding Regions based on 123,136 human exomes from gnomAD</h2>
-    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bed.gz" class="btn btn-info" role="button">BED File</a>
-    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bedGraph.gz" class="btn btn-info" role="button">bedGraph File</a>
-    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bw" class="btn btn-info" role="button">bigWig File</a>
+    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v2.20180420.bed.gz" class="btn btn-info" role="button">BED File</a>
+    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v2.20180420.bedGraph.gz" class="btn btn-info" role="button">bedGraph File</a>
+    <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v2.20180420.bw" class="btn btn-info" role="button">bigWig File</a>
  <!-- legend -->
   <h4>CCR BED12 Color Legend</h4>
   <p>There are colors for each scale of constraint.</p>  
@@ -109,7 +109,7 @@ if (!locus) {
                     locus: locus,
                     tracks: [
                         {
-                            url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bw',
+                            url: 'https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v2.20180420.bw',
                             name: 'CCRs',
                             type: "wig",
                             color: function(value) {
@@ -137,8 +137,8 @@ if (!locus) {
                             type: "annotation",
                             format: "bed",
                             sourceType: "file",
-                            url: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bed12.bed.gz",
-                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v1.20171112.bed12.bed.gz.tbi",
+                            url: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v2.20180420.bed12.bed.gz",
+                            indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.v2.20180420.bed12.bed.gz.tbi",
                             order: 2,
                             height: 50,
                             visibilityWindow: 500000,
