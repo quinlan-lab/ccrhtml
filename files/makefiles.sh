@@ -59,3 +59,6 @@ bgzip -c gnomad-functional-pass.vcf > gnomad-functional-pass.vcf.gz; tabix gnoma
 
 # make gnomAD coverage track
 bash makecov.sh
+
+# make GERP track
+bash makegerp.sh

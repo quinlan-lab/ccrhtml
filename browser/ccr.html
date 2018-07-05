@@ -288,6 +288,22 @@ if (!locus) {
                             indexURL: "https://s3.us-east-2.amazonaws.com/ccrs/tracks/gnomad-vep-vt.vcf.gz.tbi",
                             order: 13,
                             visibilityWindow: 500000
+                        },
+                        {
+                            url: 'https://s3.us-east-2.amazonaws.com/ccrs/tracks/gerp.bw',
+                            name: 'GERP++',
+                            type: "wig",
+                            color: function(value) {
+                                var c;
+                                if (value < 1.7){
+                                    c = "rgb(0,0,255)"
+                                }
+                                if (value >= 1.7){
+                                    c = "rgb(255,0,0)"
+                                }
+                                return c 
+                            },
+                            order: 14
                         }
                             ]
                 };
