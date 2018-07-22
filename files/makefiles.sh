@@ -37,6 +37,10 @@ bedGraphToBigWig ccrs.xchrom.$ver.$date.bedGraph hg19.chrom.sizes ccrs.xchrom.$v
 python bed12.py ccrs.autosomes.$ver.$date.bed.gz | sort -k1,1 -k2,2n | bgzip -c > ccrs.autosomes.$ver.$date.bed12.bed.gz; tabix -p bed ccrs.autosomes.$ver.$date.bed12.bed.gz -f
 python bed12.py ccrs.xchrom.$ver.$date.bed.gz | sort -k1,1 -k2,2n | bgzip -c > ccrs.xchrom.$ver.$date.bed12.bed.gz; tabix -p bed ccrs.xchrom.$ver.$date.bed12.bed.gz -f
 
+# make 90th or higher percentile file:
+zcat ccrs.autosomes.$ver.$date.bed.gz | awk '$4 >= 90' | bgzip -c > ccrs.autosomes.90orhigher.$ver.$date.bed.gz; tabix ccrs.autosomes.90orhigher.$ver.$date.bed.gz
+zcat ccrs.xchrom.$ver.$date.bed.gz | awk '$4 >= 90' | bgzip -c > ccrs.xchrom.90orhigher.$ver.$date.bed.gz; tabix ccrs.xchrom.90orhigher.$ver.$date.bed.gz
+
 # grab and make self-chain and segdup tracks
 zcat < genomicSuperDups.txt.gz | cut -f 2-4 | sort -k1,1 -k2,2n | bgzip -c > hgsegmental.bed.gz; tabix hgsegmental.bed.gz
 python get-chain.py | sort -k1,1 -k2,2n | bgzip -c > self-chains.id90.bed.gz; tabix self-chains.id90.bed.gz
