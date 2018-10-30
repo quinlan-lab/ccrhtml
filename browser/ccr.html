@@ -46,6 +46,9 @@
 div.igv-track-label {
     max-width: 500px;
 }
+div.indent {
+    margin-left: 50px;
+}
 span.label-default {
     background-color: rgb(0, 0, 255)
 }
@@ -59,11 +62,53 @@ span.label-danger {
     background-color: rgb(139, 0, 0)
 }
 blockquote {
-    background: #eee;
-    border-radius: 5px;
-}
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 20px;
+  border-left: 7px solid red;
+  background: #eee;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  font-family: 'Raleway';
+  color: #333;
+  text-align: left;
+  
+  box-shadow: 1px 1px 1px #999,
+              2px 2px 1px #999,
+              3px 3px 1px #999;
+  transition-duration: .3s;
+  
+  span.author {
+    position: relative;
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    color: #999;
+    
+    i {
+      position: relative;
+      background: #eee;
+      padding-left: 5px;
+      font-style: italic;
+      z-index: 5;
+    }
+    
+    &::before {
+      display: block;
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: #ccc;
+      z-index: 1;
+    }
+  }
 blockquote p {
-    padding: 15px;
+    padding: 5px;
 }
 </style>
 
@@ -71,7 +116,7 @@ blockquote p {
 
 <body>
 
-<div class="container float-left">
+<div class="indent">
 
     <h2 style="font-family:Raleway; font-size:32px; font-weight:normal;">Constrained Coding Regions based on 123,136 human exomes from gnomAD</h2>
     <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.autosomes.v2.20180420.bed.gz" class="btn btn-info" role="button">Autosome CCR BED File</a>
@@ -83,7 +128,14 @@ blockquote p {
     <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bedGraph.gz" class="btn btn-info" role="button">X Chrom CCR bedGraph File</a>
     <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bw" class="btn btn-info" role="button">X Chrom CCR bigWig File</a>
     <a href="https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.90orhigher.v2.20180420.bed.gz" class="btn btn-info" role="button">X Chrom CCRs >=90% BED File</a>
+</div>
+
+<blockquote>
+  <p>For more information on how to interpret the files, query the browser, or to read the manuscript, go to <a href="https://github.com/quinlan-lab/ccrhtml">the GitHub repo</a> for the CCR browser.</p>  <p>See <a href="https://github.com/quinlan-lab/ccr">the model repository</a> or <a href="https://quinlan-lab.github.io/ccr/">its documentation</a> to see how we created the model and how you can create your own version of the CCR model.</p>
+</blockquote>
+
  <!-- legend -->
+<div class="indent">
   <h4>CCR BED12 Color Legend</h4>
   <p>There are colors for each scale of constraint.</p>  
   <span class="label label-default">CCRs &lt; 90th Percentile</span>
@@ -92,13 +144,9 @@ blockquote p {
   <span class="label label-danger">CCRs &ge; 99th Percentile</span>
 </div>
 
-<blockquote>
-  <p>For more information on how to interpret the files, query the browser, or to read the manuscript, see <a href="https://github.com/quinlan-lab/ccrhtml">the GitHub repo</a> for the browser.</p>
-</blockquote>
-
  <!-- container -->
 
-<div class="container-fluid" id="igvDiv" style="padding:5px; border:1px solid lightgray"></div>
+<div class="indent" id="igvDiv" style="margin-top:15px; margin-right: 10px; padding:5px; border:1px solid lightgray"></div>
 
 <script>
 
