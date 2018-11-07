@@ -134,6 +134,26 @@ blockquote p {
   <p>For more information on how to interpret the files, query the browser, or to read the manuscript, go to <a href="https://github.com/quinlan-lab/ccrhtml">the GitHub repo</a> for the CCR browser.</p>  <p>See <a href="https://github.com/quinlan-lab/ccr">the model repository</a> or <a href="https://quinlan-lab.github.io/ccr/">its documentation</a> to see how we created the model and how you can create your own version of the CCR model.</p>
 </blockquote>
 
+ <!-- container -->
+
+<blockquote style="border-left: 10px solid blue">
+   <label>
+    <p>Add your own local BAM, VCF, GTF, or BED files</p>
+    <p>(indexed BAMs, other files bgzipped and tabixed)</p>
+    </label>
+    <p>
+        Select both the file and the index using the button below.
+    </p>
+            <input id="fileWidget" class="hidden" type="file" multiple="true" accept=".bam,.bai,.gz,.tbi" onchange="load()"/>
+    <label for="fileWidget">
+        <img src="https://s3.us-east-2.amazonaws.com/ccrs/images/searchbar.png" alt="Search img" height="50" width="122">
+        </label>
+
+    <p>
+    <div id="fileNameDiv"></div>
+    </p>
+</blockquote>
+
  <!-- legend -->
 <div class="indent">
   <h4>CCR BED12 Color Legend</h4>
@@ -143,8 +163,6 @@ blockquote p {
   <span class="label label-warning">CCRs &ge; 95th Percentile</span>
   <span class="label label-danger">CCRs &ge; 99th Percentile</span>
 </div>
-
- <!-- container -->
 
 <div class="indent" id="igvDiv" style="margin-top:15px; margin-right: 10px; padding:5px; border:1px solid lightgray"></div>
 
@@ -160,6 +178,9 @@ if (!locus) {
 </script>
 
 <script type="text/javascript">
+    
+    var igvBrowser;
+    
     $(document).ready(function () {
 
         var div = $("#igvDiv")[0],
@@ -369,9 +390,166 @@ if (!locus) {
                             ]
                 };
 
-        igv.createBrowser(div, options);
+        igv.createBrowser(div, options)
+            .then(function (b) {
+                igvBrowser = b;
+            })
 
     });
+
+    function load() {
+
+        var fileWidget = document.getElementById("fileWidget");
+        var files = fileWidget.files;
+
+        var fileTxt = "<ul>";
+        for (let file of files) {
+            fileTxt += "<li>" + file.name + "</li>";
+        }
+        fileTxt += "</ul>";
+        document.getElementById("fileNameDiv").innerHTML = fileTxt;
+
+
+        // Find BAM files and cache index files.  Note there are 2 index naming conventions, .bam.bai and .bai
+        // This scheme catches both.
+        var bamFiles = [];
+        var indexFiles = {};
+        var vcfFiles = [];
+        var vcftbiFiles = {};
+        var bedFiles = [];
+        var bedtbiFiles = {};
+        var gtfFiles = [];
+        var gtftbiFiles = {};
+
+        for (let file of files) {
+            if (file.name.endsWith(".bam")) {
+                bamFiles.push(file);
+            }
+            else if (file.name.endsWith(".bai")) {
+                var key = getKey(file.name);
+                indexFiles[key] = file;
+            }
+            else if (file.name.endsWith(".vcf.gz")) {
+                vcfFiles.push(file);
+            }
+            else if (file.name.endsWith("vcf.gz.tbi")) {
+                var key = getKey(file.name);
+                vcftbiFiles[key] = file;
+            }
+            else if (file.name.endsWith(".bed.gz")) {
+                bedFiles.push(file);
+            }
+            else if (file.name.endsWith("bed.gz.tbi")) {
+                var key = getKey(file.name);
+                bedtbiFiles[key] = file;
+            }
+            else if (file.name.endsWith(".gtf.gz")) {
+                gtfFiles.push(file);
+            }
+            else if (file.name.endsWith("gtf.gz.tbi")) {
+                var key = getKey(file.name);
+                gtftbiFiles[key] = file;
+            }
+            else {
+                alert("Unsupported file type: " + file.name);
+            }
+        }
+
+        // Create track objects
+        var trackConfigs = [];
+
+        for (let file of bamFiles) {
+
+            var key = getKey(file.name);
+            var indexFile = indexFiles[key];
+            if (indexFile) {
+                trackConfigs.push({
+                    name: file.name,
+                    type: "alignment",
+                    format: "bam",
+                    url: file,
+                    indexURL: indexFile
+                })
+            }
+            else {
+                alert("No index file for: " + file.name);
+            }
+        }
+
+        for (let file of vcfFiles) {
+
+            var key = getKey(file.name);
+            var vcftbiFile = vcftbiFiles[key];
+            if (vcftbiFile) {
+                trackConfigs.push({
+                    name: file.name,
+                    type: "variant",
+                    format: "vcf",
+                    url: file,
+                    indexURL: vcftbiFile
+                })
+            }
+            else {
+                alert("No index file for: " + file.name);
+            }
+        }
+
+        for (let file of bedFiles) {
+
+            var key = getKey(file.name);
+            var bedtbiFile = bedtbiFiles[key];
+            if (bedtbiFile) {
+                trackConfigs.push({
+                    name: file.name,
+                    type: "annotation",
+                    format: "bed",
+                    url: file,
+                    indexURL: bedtbiFile
+                })
+            }
+            else {
+                alert("No index file for: " + file.name);
+            }
+        }
+
+        for (let file of gtfFiles) {
+
+            var key = getKey(file.name);
+            var gtftbiFile = gtftbiFiles[key];
+            if (gtftbiFile) {
+                trackConfigs.push({
+                    name: file.name,
+                    type: "annotation",
+                    format: "gtf",
+                    url: file,
+                    indexURL: gtftbiFile
+                })
+            }
+            else {
+                alert("No index file for: " + file.name);
+            }
+        }
+
+        if (trackConfigs.length > 0) {
+
+            igvBrowser.loadTrackList(trackConfigs);
+
+        }
+
+
+        function getKey(filename) {
+
+            var idx = filename.indexOf(".");
+            if (idx < 0) {
+                console.error("File with no extension: " + filename);
+            }
+            else {
+                return filename.substring(0, idx);
+            }
+
+        }
+
+    }
 
 </script>
 
