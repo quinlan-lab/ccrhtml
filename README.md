@@ -1,6 +1,12 @@
 # A map of constrained coding regions (CCRs) in the human genome.
 
-### [Preprint](https://www.biorxiv.org/content/early/2017/11/16/220814) Havrilla, J. H., Pedersen, B.S., Layer, R.M. & Quinlan, A.R. A map of constrained coding regions in the human genome. _bioRxiv_ 220814 (2017). doi:10.1101/220814
+#### If you use CCRs in any way, please cite the paper:
+
+[Havrilla, J.M., Pedersen, B.S., Layer, R.M. & Quinlan, A.R. A map of constrained coding regions in the human genome. Nature Genetics (2018). doi:10.1038/s41588-018-0294-6](https://www.nature.com/articles/s41588-018-0294-6)
+
+----------
+
+#### Note that currently, all files use the hg19/GRCh37 human reference.
 
 ## [CCR Bed File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.autosomes.v2.20180420.bed.gz "CCR Bed File") | [CCR Tabix Index File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.autosomes.v2.20180420.bed.gz.tbi "CCR Tabix Index File") | [CCR BigWig File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.autosomes.v2.20180420.bw "CCR BigWig File") ##
 ## [X-CCR Bed File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bed.gz "CCR Bed File") | [X-CCR Tabix Index File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bed.gz.tbi "CCR Tabix Index File") | [X-CCR BigWig File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bw "CCR BigWig File") ##
