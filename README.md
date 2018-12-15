@@ -11,19 +11,19 @@
 ## [CCR Bed File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.autosomes.v2.20180420.bed.gz "CCR Bed File") | [CCR Tabix Index File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.autosomes.v2.20180420.bed.gz.tbi "CCR Tabix Index File") | [CCR BigWig File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.autosomes.v2.20180420.bw "CCR BigWig File") ##
 ## [X-CCR Bed File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bed.gz "CCR Bed File") | [X-CCR Tabix Index File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bed.gz.tbi "CCR Tabix Index File") | [X-CCR BigWig File](https://s3.us-east-2.amazonaws.com/ccrs/ccrs/ccrs.xchrom.v2.20180420.bw "CCR BigWig File") ##
 
-# [CCR Browser](https://rebrand.ly/ccrregions "CCR Browser")
+# [CCR Browser](https://www.rebrand.ly/ccrregions "CCR Browser")
 
-So the browser is accessible at [rebrand.ly/ccrregions](https://rebrand.ly/ccrregions) (the link shown above) or the hard link at https://s3.us-east-2.amazonaws.com/ccrs/ccr.html.  You can use either link to get to the browser, and after either link you can submit a locus as a query to the browser at the end of the URL like so:
-* rebrand.ly/ccrregions#chr20:62,064,356-62,079,335
-* or rebrand.ly/ccrregions#20:62,064,356-62,079,335 
-* or rebrand.ly/ccrregions#chr20:62064356-62079335 
-* or rebrand.ly/ccrregions#20:62064356-62079335
-* or rebrand.ly/ccrregions#KCNQ2 
+So the browser is accessible at [www.rebrand.ly/ccrregions](https://www.rebrand.ly/ccrregions) (the link shown above) or the hard link at https://s3.us-east-2.amazonaws.com/ccrs/ccr.html.  You can use either link to get to the browser, and after either link you can submit a locus as a query to the browser at the end of the URL like so:
+* www.rebrand.ly/ccrregions#chr20:62,064,356-62,079,335
+* or www.rebrand.ly/ccrregions#20:62,064,356-62,079,335 
+* or www.rebrand.ly/ccrregions#chr20:62064356-62079335 
+* or www.rebrand.ly/ccrregions#20:62064356-62079335
+* or www.rebrand.ly/ccrregions#KCNQ2 
 
 Additionally you can do multi-locus search in the URL (or separated by spaces in the search bar of IGV) like so:
-* rebrand.ly/ccrregions#chr20:62,064,356-62,079,335+ACTN1
-* or rebrand.ly/ccrregions#KCNQ2+ACTN1
-* or rebrand.ly/ccrregions#KCNQ2+ACTN1+ACTN2
+* www.rebrand.ly/ccrregions#chr20:62,064,356-62,079,335+ACTN1
+* or www.rebrand.ly/ccrregions#KCNQ2+ACTN1
+* or www.rebrand.ly/ccrregions#KCNQ2+ACTN1+ACTN2
 
 ![Browser Screenshot](images/browserscreenshot.png "Browser Screenshot")
 
