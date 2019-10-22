@@ -36,7 +36,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- IGV JS-->
-    <script type="text/javascript" src="https://igv.org/web/current/dist/igv.js"></script>
+    -<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/igv@2.3.2/dist/igv.min.js"></script>
 
 <style>
 div.igv-track-label {
@@ -499,8 +499,11 @@ if (!locus) {
                     name: file.name,
                     type: "annotation",
                     format: "bed",
+                    sourceType: "file",
                     url: file,
-                    indexURL: bedtbiFile
+                    indexURL: bedtbiFile,
+                    visibilityWindow: 500000,
+                    displayMode: "EXPANDED"
                 })
             }
             else {
